@@ -4,8 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TeoremaSheldon implements Proposicion{
-    private int num;
-    private NumPrimo numPrimo;
+    private final int num;
+    private final NumPrimo numPrimo;
     private boolean cumple;
 
     public TeoremaSheldon(int num){
@@ -45,7 +45,7 @@ public class TeoremaSheldon implements Proposicion{
     }
 
     public int obtenerEspejo(int num) {
-        var cifras = obtenerCifras(num); int i = 1; int resultado = 0;
+        List<Integer> cifras = obtenerCifras(num); int i = 1; int resultado = 0;
 
         for (Integer integer : cifras) {
             resultado += integer * (Math.pow(10, (cifras.size() - i)));
@@ -55,9 +55,9 @@ public class TeoremaSheldon implements Proposicion{
     }
 
     public int multiplicarCifras(int num) {
-        var cifras = obtenerCifras(num); int resultado = 1;
+        List<Integer>  cifras = obtenerCifras(num); int resultado = 1;
 
-        for (Integer integer : cifras) {
+        for (int integer : cifras) {
             resultado *= integer;
         }
         return resultado;
@@ -65,10 +65,7 @@ public class TeoremaSheldon implements Proposicion{
 
     public int ObtenerPrimoPosicion(int primoPosicion) {
         List<Integer> listaPrimos = numPrimo.obtenerListaPrimos(primoPosicion);
-        int primo = listaPrimos.get(listaPrimos.size() - 1);
-
-
-        return primo;
+        return listaPrimos.get(listaPrimos.size() - 1);
     }
 
     private List<Integer> obtenerCifras(int num) {
@@ -85,8 +82,6 @@ public class TeoremaSheldon implements Proposicion{
     }
     public int getNum() {
         return num;
-    }public NumPrimo getNumPrimo() {
-        return numPrimo;
     }public boolean getCumple() {
         comprobarCumpleTeorema();
         return cumple;

@@ -14,6 +14,6 @@ public class App {
         System.out.println(resultados.get(1)); System.out.println(resultados.get(0));
     
         TeoremaSheldon sheldon = new TeoremaSheldon(73);
-        System.out.println(sheldon.comprobarCumpleTeorema());
+        System.out.println(sheldon.comprobarCumpleTeorema()); // = sheldon.getCumple();
     }
 }

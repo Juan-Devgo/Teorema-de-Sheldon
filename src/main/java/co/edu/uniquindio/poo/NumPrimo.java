@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NumPrimo implements Proposicion{
-    private int num;
-    private Euclides euclides;
+    private final int num;
     private boolean cumple;
 
     public NumPrimo(int num){
         this.num  = num;
-        this.euclides = new Euclides(1, 1);
     }
 
     private boolean ComprobarEsPrimo() {
@@ -21,7 +19,6 @@ public class NumPrimo implements Proposicion{
                 break;
             }i++;
         }
-        this.cumple = cumple;
         return cumple;
     }
 
@@ -51,12 +48,8 @@ public class NumPrimo implements Proposicion{
         return primos;
     }
 
-    public Euclides getEuclides() {
-        return euclides;
-    }public int getNum() {
-        return num;
-    }public boolean getCumple() {
-        ComprobarEsPrimo();
+   public boolean getCumple() {
+        this.cumple = ComprobarEsPrimo();
         return cumple;
     }
 }
